@@ -1,8 +1,11 @@
 import express from "express";
 import routerProdutos from './produtos.js'
 import routerFlights from './voos.js'
+import { interferir } from "../middlewares/interferir.js";
 
 const routerMain = express.Router();
+
+routerMain.use(interferir)
 
 routerMain.use('/produtos', routerProdutos);
 routerMain.use('/flight', routerFlights);
